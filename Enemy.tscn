@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bvfbdid7tqjfc"]
+
+[ext_resource type="Script" uid="uid://dtmdrrmeimpo1" path="res://enemy_pyhsics.gd" id="1_s7bn3"]
+[ext_resource type="Texture2D" uid="uid://bpqtkksj5otkw" path="res://RoboOrginalNew.png" id="1_tt7e2"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_enemy"]
+radius = 0.3
+height = 0.6
+
+[node name="Enemy" type="CharacterBody3D" unique_id=1682238765]
+collision_layer = 4
+floor_constant_speed = true
+floor_max_angle = 0.87266463
+floor_snap_length = 0.5
+script = ExtResource("1_s7bn3")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=990294651]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+pixel_size = 0.00625
+billboard = 1
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("1_tt7e2")
+hframes = 102
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=310598888]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+shape = SubResource("CapsuleShape3D_enemy")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=808367040]
+path_desired_distance = 0.3
+target_desired_distance = 0.5
+path_height_offset = 0.1
+radius = 0.3
